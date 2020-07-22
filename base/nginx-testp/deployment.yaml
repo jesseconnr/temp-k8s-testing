@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-testp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-testp
+  template:
+    metadata:
+      labels:
+        app: nginx-testp
+    spec:
+      containers:
+      - name: nginx-testp
+        image: nginx:1.18.0
+        ports:
+        - name: http
+          containerPort: 80
+          protocol: TCP
+        volumeMounts:
+        - name: testp-config
+          mountPath: /etc/nginx
+          readOnly: true
+        - name: nginx-log
+          mountPath: /var/log/nginx
+      volumes:
+      - name: testp-config
+        configMap:
+          name: testp-config
+      - name: nginx-log
+        emptyDir: {}

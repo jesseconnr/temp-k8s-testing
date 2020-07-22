@@ -5,8 +5,14 @@ kind: Kustomization
 resources:
   - nginx-ingress/service.yaml
   - nginx-ingress/deployment.yaml
-
+  - nginx-testp/service.yaml
+  - nginx-testp/deployment.yaml
+  
 configMapGenerator:
 - name: nginx-config
   files:
   - nginx-ingress/nginx.conf
+- name: testp-config
+  files:
+  - nginx-testp/nginx.conf
+  
