@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: nginx-testp
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: nginx-testp
@@ -30,4 +30,5 @@ spec:
         configMap:
           name: testp-config
       - name: nginx-log
-        emptyDir: {}
+        persistentVolumeClaim:
+          claimName: pvc-001
