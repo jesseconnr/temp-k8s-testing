@@ -3,11 +3,14 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
+  - local-storage/storage-class.yaml
+  - local-storage/PV10G001.yaml
+  - local-storage/PV10G002.yaml
   - nginx-ingress/service.yaml
   - nginx-ingress/deployment.yaml
   - nginx-testp/service.yaml
   - nginx-testp/deployment.yaml
-  
+
 configMapGenerator:
 - name: nginx-config
   files:
