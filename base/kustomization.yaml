@@ -8,9 +8,9 @@ resources:
   - local-storage/PV10G002.yaml
   - nginx-ingress/service.yaml
   - nginx-ingress/deployment.yaml
-  - nginx-testp/pvc-001.yaml
-  - nginx-testp/service.yaml
-  - nginx-testp/deployment.yaml
+  # - nginx-testp/pvc-001.yaml
+  # - nginx-testp/service.yaml
+  # - nginx-testp/deployment.yaml
 
 configMapGenerator:
 - name: nginx-config
