@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: nginx-testp
 spec:
-  replicas: 1
+  replicas: 0
   selector:
     matchLabels:
       app: nginx-testp
@@ -19,16 +19,16 @@ spec:
         - name: http
           containerPort: 80
           protocol: TCP
-        volumeMounts:
-        - name: testp-config
-          mountPath: /etc/nginx
-          readOnly: true
-        - name: nginx-log
-          mountPath: /var/log/nginx
-      volumes:
-      - name: testp-config
-        configMap:
-          name: testp-config
-      - name: nginx-log
-        persistentVolumeClaim:
-          claimName: pvc-001
+        # volumeMounts:
+        # - name: testp-config
+        #   mountPath: /etc/nginx
+        #   readOnly: true
+        # - name: nginx-log
+        #   mountPath: /var/log/nginx
+      # volumes:
+      # - name: testp-config
+      #   configMap:
+      #     name: testp-config
+      # - name: nginx-log
+      #   persistentVolumeClaim:
+      #     claimName: pvc-001
